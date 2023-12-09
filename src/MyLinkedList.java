@@ -27,7 +27,10 @@ public class MyLinkedList {
     }
 
     public void remove(int index) {
-
+        if (index < 0 || index >= size) {
+            System.out.println("Enter a valid index");
+            return;
+        }
         Node value = head;
         for (int i = 0; i < index; i++) {
             value = value.next;

@@ -16,7 +16,12 @@ public class MyArrayList {
         size++;
     }
 
-    public void remove(int index){
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Enter a valid index");
+            return;
+        }
+
         Object[] newArr = new Object[size - 1];
 
         System.arraycopy(objects, 0, newArr, 0, index);
@@ -24,6 +29,7 @@ public class MyArrayList {
         size--;
         objects = Arrays.copyOf(newArr, size);
     }
+
 
     public void clear() {
         size = 0;
@@ -34,7 +40,7 @@ public class MyArrayList {
     }
 
     public Object get(int index) {
-        if(index < 0 || index > size){
+        if(index < 0 || index >= size){
             return (Object) "enter the correct index";
         }
         return (Object) objects[index];
@@ -51,15 +57,15 @@ public class MyArrayList {
         arrayList.add("f");
         arrayList.add("gg");
 
-        System.out.println(arrayList.get(6));
+        System.out.println(arrayList.get(2));
 
         System.out.println(arrayList.get(-3));
 
         System.out.println(arrayList.size());
 
-        arrayList.remove(6);
+        arrayList.remove(2);
 
-        System.out.println(arrayList.get(6));
+        System.out.println(arrayList.get(2));
 
         arrayList.clear();
 
